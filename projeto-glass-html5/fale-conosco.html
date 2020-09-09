@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiba tudo sobre o Google Glass</title>
+    <link rel="stylesheet" type="text/css" href="_css\estilo.css">
+    <link rel="stylesheet" type="text/css" href="_css/form.css">
+    <script src="_javascript/funcoes.js"></script>
+    <script>
+        function calc_total() {
+            var qtd = parseInt(document.getElementById("iQtd").value);
+            tot = qtd * 1500;
+            document.getElementById('iTot').value = tot; 
+        }
+    </script>
+</head>
+
+<body>
+    <div id="interface">
+
+        <header id="cabecalho">
+            <hgroup> 
+                <h1>Google Glass</h1>
+                <h2>A revolução do Google está chegando</h2>
+            </hgroup>
+
+            <img id="icone" src="_imagens/contato.png" alt="Uma imagem do Google Glass"> <!--imagem lateral direita-->
+
+            <!--Menu principal lateral direita-->     
+            <nav id ="menu"> 
+                <h1>Menu Principal</h1> <!--Este título não aparece na tela, mas fica visível nos mecanismos de busca-->
+                <ul>
+                    <li onmousemove="mudarIcone('home')" onmouseout="mudarIcone('contato')"><a href="index.html">Home</a></li>
+                    <li onmousemove="mudarIcone('especificacoes')" onmouseout="mudarIcone('contato')"><a href="specs.html" >Especificações</a></li>
+                    <li onmousemove="mudarIcone('fotos')" onmouseout="mudarIcone('contato')"><a href="fotos.html" >Fotos</a></li>
+                    <li onmousemove="mudarIcone('multimidia')" onmouseout="mudarIcone('contato')"><a href="multimidia.html" >Multimídia</a></li>
+                    <li onmousemove="mudarIcone('contato')" onmouseout="mudarIcone('contato')"><a href="fale-conosco.html" >Fale conosco</a></li> 
+                </ul>     
+        </header>
+        <section id="corpo-full">
+            <article id="noticia-principal">
+                <header id="cabecalho-artigo"> 
+                    <hgroup>
+                        <h3>Fale Conosco > Contato</h3>
+                        <h1>Formulário de Contato</h1>
+                    </hgroup>
+                </header>
+
+                <form method="POST" id="fContato" action="mailto:natti-viana@hotmail.com" oninput="calc_total();">
+                    <!--A tag <fieldset> é usada para agrupar elementos relacionados em um formulário.Ela desenha uma caixa ao redor dos elementos relacionados-->
+                    <!--A tag <legend> define uma legenda para o elemento <fieldset>.-->
+                    <fieldset id="usuario"><legend>Identificação do Usuário</legend>
+                        <p><label for="iNome">Nome: </label> <input type="text" name="tNome" id="iNome" size="50" maxlength="80" placeholder="Nome Completo"/></p>
+                        <p><label for="iSenha">Senha: </label> <input type="password" name="tSenha" id="iSenha" size="10" maxlength="8" placeholder="8 dígitos"/></p>
+                        <p><label for="iEmail">E-mail: </label> <input type="email" name="tEmail" id="iEmail" size="50" maxlength="40"/></p>
+                        <fieldset id="sexo"><legend>Sexo</legend> 
+                            <input type="radio" name="tSexo" id="iMasc"/><label for="iMasc">Masculino</label></br>
+                            <input type="radio" name="tSexo" id="iFem"/><label for="iFem"> Feminino</label>
+                        </fieldset>
+                        <p><label for="iNasc"> Data de Nascimento: </label><input type="date" name="tNasc" id="iNasc"/></p>
+                    </fieldset>
+                    
+                    <fieldset id="endereco"><legend>Endereço do Usuário</legend>
+                        <p><label for="iRua">Logradouro: </label><input type="text" name="tRua" id="iRua" size="50" maxlength="80" placeholder="Rua, Av., Travessa, Estrada"/></p>
+                        <p><label for="iNum">Número: <input type="number" name="tNum" id="iNum" min="0" max="99999"/></label></p>
+                        <p><label for="iEst">Estado: </label>
+                            <select name="tEst" id="iEst">
+                                <option value="" selected disabled hidden>Escolha aqui</option>
+                                <option value="DF">Distrito Federal</option> 
+                                <optgroup label="Região Centro-Oeste">
+                                    <option value="GO">Goiás</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                </optgroup>   
+                                <optgroup label="Região Norte">
+                                    <option value="AC">Acre</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="TO">Tocantins</option>
+                                </optgroup>
+                                <optgroup label="Região Nordeste">
+                                    <option value="AL">Alagoas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value=PB>Paraíba</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>  
+                                    <option value="RN">Rio Grande do Norte</option> 
+                                    <option value="SE">Sergipe</option>      
+                                </optgroup>
+                                <optgroup label="Região Sudeste">
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="SP">São Paulo</option>
+                                </optgroup>
+                                <optgroup label="Região Sul">
+                                    <option value="PR">Paraná</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="SC">Santa Catarina</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                        <p><label for="iCid">Cidade: </label>
+                            <input type="text" name="tCid" id="iCid" size="50" maxlength="30" placeholder="Sua cidade"/>
+                        </p>
+                    </fieldset>
+
+                    <fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
+                        <p><label for=iUrg>Grau de Urgência: </label> Pouca<input type="range" name="tUrg" id="iUrg" min="0" max="2" step="1"/>Muita</p>
+                        <p><label for="iMsg">Mensagem: </label><textarea name="tMsg" id="iMsg" cols="45" rows="5"></textarea></p>
+                    </fieldset>
+
+                    <fieldset id="pedido"><legend>Quero um Google Glass</legend>
+                        <p><input type="checkbox" name="tPed" id="iPed"/><label for="iPed">Gostaria de adquirir um Google Glass quando disponível </label></p>
+                        <p><label for="iCor">Cor: </label><input type="color" name="tcolor" id="iCor" value="#ffffff"/></p>
+                        <p><label for="iQtd">Quantidade: </label><input type="number" name="tQtd" id="iQtd" min="0" max="5"/></p>
+                        <p><label for="iTot">Preço Total: US$ </label><input type="text" name="tTot" id="iTot" placeholder="Total a Pagar" readonly size="10"/></p>
+                    </fieldset>
+                        
+                    <!--<input type="submit" value="Enviar"/>-->
+                    <input type="image" name="tEnviar" id="iEnviar" src="_imagens/botao-enviar.png"/>
+                </form>
+                
+            </article>
+        </section>
+
+        <!--Rodapé-->
+        <footer id="rodape">
+            <p>© Copyright 2020 - by Gustavo Guanabara <br/>
+            <a href="https://www.facebook.com/CursosEmVideo/" target="_blank">Facebook</a> | <a href="https://twitter.com/cursosemvideo" target="_blank">Twitter</a> | <a href="https://www.cursoemvideo.com" target="_blank">Site</a></p>
+        </footer>
+    </div>
+</body>
+
